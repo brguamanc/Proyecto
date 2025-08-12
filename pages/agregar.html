@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Agregar Empresa</title>
+  <link rel="stylesheet" href="../css/estiloagregar.css">
+</head>
+<body>
+  <h2>Agregar Nueva Empresa</h2>
+  <form action="../php/agregar.php" method="POST">
+    <input type="text" name="nombre" placeholder="Nombre" required><br>
+    <input type="text" name="direccion" placeholder="Dirección" required><br>
+    <input type="text" name="vigencia" placeholder="Vigencia" required><br>
+    <input type="text" name="actividad" placeholder="Actividad" required><br>
+    <input type="text" name="contacto" placeholder="Contacto" required><br>
+    <input type="text" name="pagina_web" placeholder="Página web" required><br>
+    
+  </form>
+
+   <div class="contenedor-boton">
+  <a class="btn-estilizado" href="empresa.html">
+  <button type="submit">Guardar Empresa</button>
+  </a>
+  </div>
+</body>
+</html>

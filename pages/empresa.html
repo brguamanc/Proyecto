@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Consulta de Empresas</title>
+  <link rel="stylesheet" href="../css/estilo_empresa.css">
+</head>
+<body>
+  <h1>Consulta de Empresas</h1>
+  <div class="selec">
+  <label for="nombre">Selecciona una empresa:</label>
+
+  <select id="nombre" onchange="cargarDatos()">
+    <option value="">--Seleccionar--</option>
+  </select>
+  </div>
+
+  <table id="tablaDatos">
+    <thead>
+      <tr>
+        
+        <th>Nombre</th>
+        <th>Dirección</th>
+        <th>Vigencia</th>
+        <th>Actividad</th>
+        <th>Contacto</th>
+        <th>Página Web</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    // Cargar los nombres al iniciar
+    fetch('../php/obtener_nombres.php')
+      .then(res => res.json())
+      .then(data => {
+        const select = document.getElementById('nombre');
+        data.forEach(nombre => {
+          const option = document.createElement('option');
+          option.value = nombre;
+          option.textContent = nombre;
+          select.appendChild(option);
+        });
+      });
+
+    // Función para cargar datos según el nombre seleccionado
+    function cargarDatos() {
+      const nombre = document.getElementById('nombre').value;
+      if (nombre === "") return;
+
+      fetch('../php/obtener_datos.php?nombre=' + encodeURIComponent(nombre))
+        .then(res => res.json())
+        .then(data => {
+          const tbody = document.querySelector("#tablaDatos tbody");
+          tbody.innerHTML = ""; // Limpiar tabla
+          data.forEach(fila => {
+            const tr = document.createElement('tr');
+            Object.values(fila).forEach(valor => {
+              const td = document.createElement('td');
+              td.textContent = valor;
+              tr.appendChild(td);
+            });
+            tbody.appendChild(tr);
+          });
+        });
+    }
+  </script>
+  <div class="contenedor-boton">
+   <a class="btn-guardar" href="agregar.html">
+    <button type="submit">Guardar Empresa</button>
+   </a>
+  </div>
+</body>
+</html>

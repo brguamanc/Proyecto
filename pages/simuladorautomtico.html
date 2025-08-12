@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Consulta de Distancias</title>
+  <link rel="stylesheet" href="../css/styleautomatico.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Selecciona el Origen y el Destino</h2>
+
+  <label for="origen">Origen:</label>
+  <select id="origen">
+    <option value="">--Seleccione Origen--</option>
+  </select>
+
+  <label for="destino">Destino:</label>
+  <select id="destino">
+    <option value="">--Seleccione Destino--</option>
+  </select>
+
+  <p id="distancia"></p>
+    <div id="resultado"></div>
+
+    <h1>Consulta precio por carga</h1>
+
+  <label for="cargaSelect">Seleccione carga:</label>
+  <select id="cargaSelect">
+    <option value="">-- Seleccione --</option>
+  </select>
+ <br>
+
+  <div id="precio"></div>
+  <br>
+  <br>
+  <input type="number" id="peso" placeholder="Peso en kg">
+  <input type="number" id="distancia1" placeholder="Distancia en km">
+  <input type="number" id="precio_por_kg" placeholder="Precio por kg">
+  <div id="precio_a_cobrar"></div>
+<button onclick="calcular()">Calcular</button>
+
+  </div>
+
+  
+
+  <script src="../js/scriptautomatico.js"></script>
+
+  
+</body>
+</html>

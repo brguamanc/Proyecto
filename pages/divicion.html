@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verificación de Edad</title>
+  <link rel="stylesheet" href="../css/estilodivicion.css" />
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Bienvenido</h1>
+    <p>Por favor, ingresa tu edad:</p>
+    <form id="formularioEdad">
+      <input type="number" id="edad" name="edad" placeholder="Tu edad" required />
+      <button type="submit">Continuar</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("formularioEdad").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const edad = parseInt(document.getElementById("edad").value);
+      if (edad >= 50) {
+        window.location.href = "../pages/simuladorautomtico.html";
+      } else {
+        window.location.href = "../pages/simulturbonpr.html";
+      }
+    });
+  </script>
+</body>
+</html>

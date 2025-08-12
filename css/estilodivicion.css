@@ -1,0 +1,56 @@
+/* Paleta de colores fríos */
+:root {
+  --color-principal: #2e86c1;
+  --color-secundario: #85c1e9;
+  --color-fondo: #eaf2f8;
+  --color-texto: #154360;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.contenedor {
+  background-color: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 300px;
+}
+
+h1 {
+  margin-bottom: 10px;
+  color: var(--color-principal);
+}
+
+input[type="number"] {
+  padding: 10px;
+  width: 100%;
+  margin: 15px 0;
+  border: 1px solid var(--color-secundario);
+  border-radius: 8px;
+  outline: none;
+}
+
+button {
+  background-color: var(--color-principal);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: var(--color-secundario);
+}

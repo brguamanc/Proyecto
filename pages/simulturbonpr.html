@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestión de Empresa</title>
+  <link rel="stylesheet" href="../css/stylesimultrailer.css">
+</head>
+<body>
+
+  <h1>DATOS DEL VEHÍCULO</h1>
+<form id="selectdato">
+  <label for="Tipovehiculo">Tipo </label>
+  <select id="Tipovehiculo" >
+    <option value="">-- Selecciona Tipo  --</option>
+    <option value="Tríler">Trailer</option>
+    <option value="GH">GH</option>
+    <option value="Túrbo">Túrbo</option>
+    <option value="MULA">Mula</option>
+  </select>
+  <br>
+  <label for="selectmodelo">Modelo</label>
+  <select id="selectmodelo" >
+    <option value="">-- Selecciona modelo --</option>
+    <option value="Nuevo">Nuevo</option>
+    <option value="Segunda">Segunda</option>
+  </select>
+  <br>
+  <label for="selectpago">Forma de pago</label>
+  <select id="selectpago" >
+    <option value="">-- Selecciona Tipo --</option>
+    <option value="Crédito">Crédito</option>
+    <option value="Contado">Contado</option>
+  </select>
+  <br>
+</form>
+
+  <form id="formEmpresa">
+    <div id="datosUsado">
+        <label for="añodelvehiculo">Año del Vehículo</label>
+        <input type="number" id="añodelvehiculo" type="number" />
+    
+        <label for="kilometrajevehiculo">Kilometraje del vehículo</label>
+        <select id="kilometrajevehiculo" >
+            <option value="">-- Selecciona --</option>
+            <option value="0-300000">0 - 300000</option>
+            <option value="300001-600000">300001-600000</option>
+            <option value="600001-900000">600001-900000</option>
+            <option value="900001-1200000">900001-1200000</option>
+            <option value="1200001-1500000">1200001-1500000</option>
+        </select>
+    </div>
+    <label for="preciodiecel">Precio de diésel</label>
+    <input type="number" id="preciodiecel" /><br/>
+    <br>
+    <label for="kmxgalon">Km que recorre por galón</label>
+    <input type="number" id="kmxgalon"  /><br/>
+
+    <label for="añosvehiculo">Años del vehículo</label>
+    <input type="number" id="añosvehiculo"  /><br/>
+
+    <label for="costopeaje">Ingrese el costo del peaje</label>
+    <input type="number" id="costopeaje"  /><br/>
+    
+    <br>
+
+    <label for="kmpeaje">Ingrese el número de KM por peaje (promedio)</label>
+    <input type="number" id="kmpeaje" /><br/>
+
+    <label for="sueldochofermensual">Sueldo del chofer (mensual)</label>
+    <input type="number" id="sueldochofermensual" /><br/>
+
+    <label for="viaticosalmes">Viáticos al mes</label>
+    <input type="number" id="viaticosalmes" /><br/>
+
+    <label for="cargaydescargue">Cargue y descargue (por viaje)</label>
+    <input type="number" id="cargaydescargue" /><br/>
+
+    <label for="pesasybalanzas">Pesas y balanza</label>
+    <input type="number" id="pesasybalanzas" /><br/>
+
+    <label for="caravana">Caravana de montaje y desmontaje mensual (por viaje)</label>
+    <input type="number" id="caravana" /><br/>
+
+    <label for="seguro">Seguro de vehículo (mensual)</label>
+    <input type="number" id="seguro" /><br/>
+
+    <label for="gastoadmin">Gastos administrativos (mensual)</label>
+    <input type="number" id="gastoadmin"  /><br/>
+
+    <label for="nflota">Número de la flota</label>
+    <input type="number" id="nflota"  /><br/>
+  </form>
+  
+<h2>Selecciona origen y destino</h2>
+
+<label for="origenInput">Origen:</label>
+  <input type="text" id="origenInput" placeholder="Ej: Paute">
+
+  <br><br>
+
+  <label for="destinoSelect">Destino:</label>
+  <select id="destinoSelect">
+    <option value="">Selecciona un destino</option>
+  </select>
+
+  <br><br>
+
+  <button onclick="buscarDistancia()">Obtener distancia</button>
+  <h3 id="resultado"></h3>
+<!--
+  <label for="origen">Origen:</label>
+  <select id="origen"></select>
+
+  <label for="destino">Destino:</label>
+  <select id="destino"></select>
+
+  <button onclick="buscarDistancia()">Buscar Distancia</button>
+
+  <div id="resultado"></div>
+  <label id="resultadodis"></label>
+ -->
+
+ 
+
+    <h1>TABLA CONTABLE DEL VEHÍCULO</h1>
+    <br>
+    <div class="contenedor-tabla">
+    <!--    <div class="fila datos">
+            <label class="celda">Distancia del flete en KM</label>
+            <input type="number" id="distanciaSeleccionada" /><br/>
+        </div>-->
+        <div class="fila datos">
+            <label class="celda">Costo de adquisición del vehículo</label>
+            <input type="number" id="TBV1" /><br/>
+        </div>
+        <div class="fila datos">
+            <label class="celda">Porcentaje de entrada</label>
+             <div class="input-con-porcentaje">
+              <input type="number" id="TBV2" />
+             <span class="simbolo">%</span>
+            </div>
+        </div>
+        
+
+
+        <div class="fila datos">
+            <label class="celda">Monto de entrada calculado</label>
+            <label class="celda" id="TBV3"></label>
+        </div>
+<!--
+        <div class="fila datos">
+            <label class="celda">Capital con interes</label>
+            <label class="celda" id="TBV6"></label>
+        </div>
+-->
+        <div class="fila datos">
+            <label class="celda">Costo mensual</label>
+            <label class="celda" id="TBV7"></label>
+        </div>
+        <div class="fila datos">
+            <label class="celda">Costo del crédito sin la entrada</label>
+            <label class="celda" id="TBV8"></label>
+        </div>
+        <div class="fila datos">
+            <label class="celda">Tiempo del crédito en años</label>
+            <input type="number" id="TBV9" /><br/>
+</div>
+<div class="fila datos">
+            <label class="celda">Tasa de interés anual</label>    
+            <div class="input-con-porcentaje">
+        <input type="number" id="TBV10" />
+        <span class="simbolo">%</span>
+    </div>
+</div>
+
+        
+        <div class="fila datos">
+            <label class="celda">Interés anual</label>
+            <label class="celda" id="TBV11"></label>
+        </div>
+
+        <div class="fila datos">
+            <label class="celda">Interes del crédito mensual</label>
+            <label class="celda" id="TBV12"></label>
+        </div>
+        <div class="fila datos">
+            <label class="celda">Crédito del vehículo</label>
+            <label class="celda" id="TBV13"></label>
+        </div>
+        <div class="fila datos">
+            <label class="celda">Costo total del vehículo a: crédito</label>
+            <label class="celda" id="TBV14"></label>
+        </div>
+        <div class="fila datos">
+            <label class="celda">Costo de venta mínimo del vehículo en 4 años</label>
+            <label class="celda" id="TBV15"></label>
+        </div>
+    </div>
+<button onclick="calcular()">Calcular Totales</button>
+
+    <h1>RESULTADOS DE COSTOS POR KILÓMETRO</h1>
+<br>
+<div>
+    <div class="contenedor-tabla">
+        <div class="fila datos">
+            <label class="celda">Costos fijos</label>
+            <label class="celda" ID="RCK1"></label>
+        </div>
+        <div class="fila datos">
+            <label class="celda">Costos variables</label>
+            <label class="celda" ID="RCK2"></label>
+        </div>
+        <div class="fila datos">
+            <label class="celda">Suma</label>
+            <label class="celda" ID="RCK3"></label>
+        </div>
+        <br>
+         <div class="fila datos">
+            <label class="celda">Distancia origen y destino</label>
+            <label class="celda" ID="RCK4"></label>
+        </div>
+       <div class="fila datos">
+            <label class="celda">Costo de KM distancia origen-destino</label>
+            <label class="celda" ID="RCK5"></label>
+        </div>
+        <div class="fila datos">
+            <label class="celda">Costo por KM</label>
+            <label class="celda" ID="RCK6"></label>
+        </div>
+        </div>
+    <br><br><br>
+    <div>
+    <div class="contenedor-tabla">
+        <div class="fila titulo">
+            <label class="celda titulo" colspan="4">DETALLE DE LOS COSTOS</label>
+        </div>
+
+        <div class="fila datos">
+            <label class="celda">Peajes</label>
+            <label class="celda" ID="DCF1C1"></label>
+            <label class="celda" ID="DCF1C2"></label>
+        </div>
+        <div class="fila datos">
+            <label class="celda">Diésel</label>
+            <label class="celda" ID="DCF2C1"></label>
+            <label class="celda" ID="DCF2C2"></label>
+        </div>
+        <div class="fila datos">
+            <label class="celda">Sueldo del chofer</label>
+            <label class="celda" ID="DCF3C1"></label>
+            <label class="celda" ID="DCF3C2"></label>
+        </div>
+        <div class="fila datos">
+            <label class="celda">Aportación para gastos administrativos</label>
+            <label class="celda" ID="DCF4C1"></label>
+            <label class="celda" ID="DCF4C2"></label>
+        </div>
+        <div class="fila datos">
+            <label class="celda">Cambio de aceite</label>
+            <label class="celda" ID="DCF5C1"></label>
+            <label class="celda" ID="DCF5C2"></label>
+        </div>
+        <div class="fila datos">
+            <label class="celda">Llantas</label>
+            <label class="celda" ID="DCF6C1"></label>
+            <label class="celda" ID="DCF6C2"></label>
+        </div>
+    </div>
+    <br>
+    <div>
+    <div class="contenedor-tabla">
+        <div class="fila titulo">
+            <label class="celda titulo" colspan="4">Plazo fijo</label>
+        </div>
+        <div class="fila datos">
+            <label class="celda">Capital</label>
+            <label class="celda" ID="pfc"></label>
+        </div>
+        <div class="fila datos">
+            <label class="celda">Interés plazo fijo</label>
+            <input type="number" id="pfi" /><br/>
+        </div>
+        <div class="fila datos">
+            <label class="celda">Tiempo en años</label>
+            <input type="number" id="pft" /><br/>
+        </div>
+        <div class="fila datos">
+            <label class="celda">Monto capital</label>
+            <label class="celda" ID="pfmc"></label>
+        </div>
+        </div>
+        </div>
+<button onclick="plasofijo()">Calcular plazo-fijo</button>
+    <br><br>
+    <div class="contenedor-tabla">
+        <div class="fila titulo">
+            <label class="celda titulo" colspan="4">COSTO DEL FLETE</label>
+        </div>
+        <div class="fila encabezado">
+            <label class="celda">COSTO POR KILÓMETRO</label>
+            <label class="celda">3%</label>
+            <label class="celda">5%</label>
+            <label class="celda">10%</label>
+            <label class="celda">12%</label>
+            <label class="celda">15%</label>
+            <label class="celda">25%</label>
+        </div>
+        <div class="fila datos">
+            <label class="celda" id="COSXKM"></label>
+            <label class="celda" id="P3F1"></label>
+            <label class="celda" id="P5F1"></label>
+            <label class="celda" id="P10F1"></label>
+            <label class="celda" id="P12F1"></label>
+            <label class="celda" id="P15F1"></label>
+            <label class="celda" id="P25F1"></label>
+        </div>
+        <div class="fila datos">
+           <label class="celda"></label>
+            <label class="celda" id="P3F2"></label>
+            <label class="celda" id="P5F2"></label>
+            <label class="celda" id="P10F2"></label>
+            <label class="celda" id="P12F2"></label>
+            <label class="celda" id="P15F2"></label>
+            <label class="celda" id="P25F2"></label>
+        </div>
+        <div class="fila datos">
+            <label class="celda" ></label>
+            <label class="celda" id="P3F3"></label>
+            <label class="celda" id="P5F3"></label>
+            <label class="celda" id="P10F3"></label>
+            <label class="celda" id="P12F3"></label>
+            <label class="celda" id="P15F3"></label>
+            <label class="celda" id="P25F3"></label>
+        </div>
+        <div class="fila datos">
+            <label class="celda" >UNIDAD</label>
+            <label class="celda" id="P3F4"></label>
+            <label class="celda" id="P5F4"></label>
+            <label class="celda" id="P10F4"></label>
+            <label class="celda" id="P12F4"></label>
+            <label class="celda" id="P15F4"></label>
+            <label class="celda" id="P25F4"></label>
+        </div>
+    </div>
+    <br>
+    <div class="contenedor-tabla">
+        <div class="fila titulo">
+            <label class="celda titulo" colspan="4">RENTABILIDAD</label>
+        </div>
+        <div class="fila encabezado">
+            <label class="celda">COSTO DEL FLETE</label>
+            
+            <label class="celda">CANTIDAD</label>
+            <label class="celda">PORCENTAJE</label>
+        </div>
+        <div class="fila datos">
+            <input class="celda" type="number" id="COSFLE" />
+            <label class="celda" id="CANITADREN"></label>
+            <label class="celda" id="PORCEN"></label>
+        </div>
+    </div>
+    <button onclick="calrenta()">RENTABILIDAD</button>
+<a href="../index.html" class="home-btn">INICIO
+ <script src="../js/scriptsimulturbopr.js"></script>
+
+
+</body>
+</html>

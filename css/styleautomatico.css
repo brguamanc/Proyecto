@@ -1,0 +1,87 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(120deg, #e0f7fa, #e1f5fe);
+  color: #333;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 600px;
+  margin: auto;
+  background-color: #ffffffcc;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Títulos */
+.container h1 {
+  text-align: center;
+  color: #00796b;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+/* Etiquetas */
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #004d40;
+}
+
+/* Selects e inputs */
+select, input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #b2dfdb;
+  border-radius: 8px;
+  background-color: #f1fefb;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+select:focus, input[type="number"]:focus {
+  outline: none;
+  border-color: #26a69a;
+}
+
+/* Botón */
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background-color: #00796b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #004d40;
+}
+
+/* Resultados */
+#distancia, #precio, #precio_a_cobrar {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #00695c;
+  padding: 10px;
+  background-color: #e0f2f1;
+  border-left: 5px solid #004d40;
+  border-radius: 5px;
+}
